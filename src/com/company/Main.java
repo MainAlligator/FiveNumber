@@ -1,27 +1,36 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Введите первое число: ");
-        int firstNumber = s.nextInt();
-        System.out.println("Введите второе  число: ");
-        int secondNumber = s.nextInt();
-        System.out.println("Введите третье  число: ");
-        int thirdNumber = s.nextInt();
-        System.out.println("Введите четвертое  число: ");
-        int fourthNumber = s.nextInt();
-        System.out.println("Введите пятое  число: ");
-        int fifthNumber = s.nextInt();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Введите пять цифр: ");
+        int value = input.nextInt();
+        ArrayList<Integer> result = new ArrayList<>();
+        while (value > 0) {
+            result.add(value % 10);
+            value = value / 10;
+        }
+        int sum = 0;
+        for (Integer integer : result) sum += integer;
+        System.out.println("Сумма введенных цифр:  " + sum);
 
-        double resultSumma = firstNumber + secondNumber + thirdNumber + fourthNumber + fifthNumber;
-        System.out.println("Сумма всех введенных чисел : " + resultSumma);
-
-        double resultAvarage = resultSumma / 5;
-        System.out.println("Среднее значение введеных чисел : " + resultAvarage);
+        int average = sum / result.size();
+        System.out.println("Среднее значение цифр: " + average);
 
     }
 }
+
+
+
+
+
+
+
+
+
+
